@@ -1,10 +1,10 @@
 package annotation;
 
-import model.AbstractID;
+import model.BasicModel;
 
 import java.lang.reflect.Field;
 
-public class Checker extends AbstractID {
+public class Checker extends BasicModel {
 
     public static void checkNullWarnings(Object currentObj) {
         for (Field field : currentObj.getClass().getDeclaredFields()) {

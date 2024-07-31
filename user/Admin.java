@@ -1,9 +1,9 @@
 package user;
 
-import model.AbstractID;
+import model.BasicModel;
 import model.Ticket;
 
-public class Admin extends AbstractID implements User{
+public class Admin extends BasicModel implements User{
 
     private static long counter = 0;
     public Admin() {

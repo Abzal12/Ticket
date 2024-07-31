@@ -1,12 +1,8 @@
 package generator_methods;
 
-import model.AbstractID;
+import model.BasicModel;
 
-import java.util.HashSet;
-import java.util.Random;
-import java.util.Set;
-
-public class Generator extends AbstractID {
+public class Generator extends BasicModel {
 
     public static String convertKilogramsToKilogramsAndGrams(double kilograms) {
         int kg = (int) kilograms;

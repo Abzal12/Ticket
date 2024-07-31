@@ -1,4 +1,4 @@
-import model.AbstractID;
+import model.BasicModel;
 import model.StadiumSector;
 import model.Ticket;
 import user.Admin;
@@ -6,7 +6,7 @@ import user.Client;
 
 import java.math.BigDecimal;
 
-public class TicketService extends AbstractID {
+public class TicketService extends BasicModel {
     public static void main(String[] args) {
 
         //creation of an empty ticket object
@@ -18,11 +18,11 @@ public class TicketService extends AbstractID {
 
         //Illustration of overriding method (= polymorphism approach)
         Abzal.printRole();
-        Abzal.getTicket(emptyTicket);
+        Abzal.buyTicket(emptyTicket);
 
         //illustration of overloading methods (= polymorphism approach)
         emptyTicket.shared("abz@mail.com");
-        emptyTicket.shared(77777777);
+        emptyTicket.shared("abza@mail.com", 77777777);
         System.out.println();
 
         //creating an admin
@@ -47,16 +47,13 @@ public class TicketService extends AbstractID {
 
             Client alien = new Client();
             alien.printRole();
-            alien.getTicket(fullTicket);
+            alien.buyTicket(fullTicket);
 
             fullTicket.shared("alien@mail.com");
-            fullTicket.shared(888888888);
+            fullTicket.shared("alien@mail.com", 888888888);
 
             alien.showTicket();
-
-            //Ticket fakeTicket = new Ticket("fake hall", "666", true, StadiumSector.C, 200.0, BigDecimal.valueOf(50));
-            Ticket fakeTicket = alien.createFakeTicket("fake hall", "666", true, StadiumSector.C, 200.0, BigDecimal.valueOf(50));
-            niceAdmin.checkTicket(fakeTicket);
+            niceAdmin.checkTicket(fullTicket);
         }
 
         // ----------------------------------------------------------------------------------------------------
@@ -70,10 +67,10 @@ public class TicketService extends AbstractID {
             limitedTicket.print();
 
             Client ironMan = new Client();
-            ironMan.getTicket(limitedTicket);
+            ironMan.buyTicket(limitedTicket);
 
             limitedTicket.shared("ironman@mail.com");
-            limitedTicket.shared(3000);
+            limitedTicket.shared("ironman@mail.com", 3000);
 
             niceAdmin.printRole();
             ironMan.showTicket();

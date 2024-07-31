@@ -12,7 +12,7 @@ import java.util.*;
 
 @Getter
 @Setter
-public class Ticket extends AbstractID {
+public class Ticket extends BasicModel {
 
     private LocalDateTime currentTime = LocalDateTime.now();
 
@@ -89,7 +89,8 @@ public class Ticket extends AbstractID {
         }
     }
 
-    public void shared(long telNumber) {
+    public void shared(String email, long telNumber) {
+        shared(email);
         System.out.println("Sending an electronic ticket details as a SMS message with an ID '" + this.getId() + "' and a link to the QR code  to the telephone number: " + telNumber);
     }
 
